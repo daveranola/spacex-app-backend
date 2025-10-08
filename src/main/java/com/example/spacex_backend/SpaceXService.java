@@ -14,18 +14,18 @@ public class SpaceXService {
         this.spaceXClient = spaceXClient;
     } //construct the spaceXClient
 
-    public LaunchDto getLaunch(String id) {
+    public HistoricalDto getLaunch(String id) {
         return spaceXClient.get()
                 .uri("/launches/{id}", id)
                 .retrieve()
-                .body(LaunchDto.class);
+                .body(HistoricalDto.class);
     }
 
-    public List<LaunchDto> listUpcoming() {
+    public List<HistoricalDto> historicalEvents() {
         return spaceXClient.get()
-                .uri("/launches/upcoming")
+                .uri("/history")
                 .retrieve()
-                .body(new ParameterizedTypeReference<List<LaunchDto>>() {});
+                .body(new ParameterizedTypeReference<List<HistoricalDto>>() {});
     }
 
     public RocketDto getRocket(String id) {

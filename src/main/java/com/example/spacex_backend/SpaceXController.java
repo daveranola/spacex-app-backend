@@ -16,13 +16,13 @@ public class SpaceXController {
         this.service = service;
     }
 
-    @GetMapping("/launches/upcoming")
-    public List<LaunchDto> upcoming() {
-        return service.listUpcoming();
+    @GetMapping("/history")
+    public List<HistoricalDto> historicalEvents() {
+        return service.historicalEvents();
     }
 
     @GetMapping("/launches/{id}")
-    public LaunchDto byId(@PathVariable String id) {
+    public HistoricalDto byId(@PathVariable String id) {
         return service.getLaunch(id);
     }
 
