@@ -2,7 +2,7 @@ package com.example.spacex_backend;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClient; //allows us to call api
 
 import java.util.List;
 
@@ -14,24 +14,15 @@ public class SpaceXService {
         this.spaceXClient = spaceXClient;
     } //construct the spaceXClient
 
-    public HistoricalDto getLaunch(String id) {
-        return spaceXClient.get()
-                .uri("/launches/{id}", id)
-                .retrieve()
-                .body(HistoricalDto.class);
-    }
 
-    public List<HistoricalDto> historicalEvents() {
-        return spaceXClient.get()
-                .uri("/history")
-                .retrieve()
-                .body(new ParameterizedTypeReference<List<HistoricalDto>>() {});
-    }
 
-    public RocketDto getRocket(String id) {
+    //.body(new ParameterizedTypeReference<List<HistoricalDto>>() {}); //lets java know its meant to be of type HistoricalDto array
+
+
+    public List<RocketDto> getAllRockets() {
         return spaceXClient.get()
-                .uri("/rockets/{id}", id)
+                .uri("/rockets")
                 .retrieve()
-                .body(RocketDto.class);
+                .body(new ParameterizedTypeReference<List<RocketDto>>() {});
     }
 }
