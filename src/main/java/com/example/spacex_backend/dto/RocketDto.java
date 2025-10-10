@@ -1,4 +1,4 @@
-package com.example.spacex_backend;
+package com.example.spacex_backend.dto;
 
 import java.util.List;
 

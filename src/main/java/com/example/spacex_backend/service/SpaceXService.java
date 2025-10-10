@@ -1,5 +1,6 @@
-package com.example.spacex_backend;
+package com.example.spacex_backend.service;
 
+import com.example.spacex_backend.dto.RocketDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient; //allows us to call api

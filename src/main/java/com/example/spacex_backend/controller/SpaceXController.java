@@ -1,5 +1,7 @@
-package com.example.spacex_backend;
+package com.example.spacex_backend.controller;
 
+import com.example.spacex_backend.dto.RocketDto;
+import com.example.spacex_backend.service.SpaceXService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,6 @@ public class SpaceXController {
     public SpaceXController(SpaceXService service) {
         this.service = service;
     }
-
 
     //@PathVariable used to extract values from the URL path and bind them to method parameters
     @GetMapping("/rockets")
