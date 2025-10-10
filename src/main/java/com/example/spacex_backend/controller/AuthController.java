@@ -24,7 +24,7 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody LoginReq req, HttpSession session) {
         if ((req.email() == null || req.email().isBlank()) &&
                 (req.username() == null || req.username().isBlank())) {
-            return ResponseEntity.badRequest().body("Email or username required");
+            return ResponseEntity.badRequest().body("Email and username required");
         }
 
         Optional<User> opt = (req.email() != null && !req.email().isBlank())
