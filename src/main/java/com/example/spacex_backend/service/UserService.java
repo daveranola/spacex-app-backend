@@ -20,11 +20,11 @@ public class UserService {
 
     public void addUser(User user) {
 
-        if (user.getEmail() != null || user.getEmail().isBlank()) {
+        if (user.getEmail() == null || user.getEmail().isBlank()) {
             throw new IllegalArgumentException("Email is required");
         }
 
-        if (user.getPassword() != null || user.getPassword().isBlank()) {
+        if (user.getPassword() == null || user.getPassword().isBlank()) {
             throw new IllegalArgumentException("Password is required");
         }
 
