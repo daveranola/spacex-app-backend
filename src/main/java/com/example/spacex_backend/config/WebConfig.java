@@ -8,10 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // cover /user/**, /auth/**, /api/**, etc.
-                .allowedOrigins("http://localhost:5173")
-                .allowedMethods("GET","POST","PUT","DELETE","PATCH","OPTIONS")
+        registry.addMapping("/**")
+                .allowedOrigins("https://<your-user>.github.io") // add staging if any
+                .allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS")
                 .allowedHeaders("*")
-                .allowCredentials(true); // set to true if you’ll use HttpSession/JSESSIONID
+                .allowCredentials(true)
+                .maxAge(3600);
     }
 }
